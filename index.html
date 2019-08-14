@@ -18,11 +18,15 @@
 <script type="text/babel">
    //クラスベースComponent
    class App extends React.Component{
+      state = {
+         name: 'RYU',
+         age: 30
+      }
       render(){
          return(
             <div className="app-content">
             <h1>NINJA</h1>
-            <p>{ Math.random()* 10}</p>
+            <p>name:{ this.state.name }/age:{this.state.age}</p>
             </div>
          )
       }
