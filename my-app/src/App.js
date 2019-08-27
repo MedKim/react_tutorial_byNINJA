@@ -8,7 +8,9 @@ class App extends React.Component {
     <div className="App">
       <h1>First App</h1>
       {/* Ninjaコンポーネント */}
-      <Ninjas />
+      <Ninjas name="Ryu" age="25" belt="black" />
+      <Ninjas name="RYU" age="30" belt="green" />
+
     </div>
   );
   }
