@@ -5,17 +5,32 @@ const Ninjas = ({ninjas}) => {
       //classやインスタンスではないのでthisはいらない
       //const { ninjas } = props; 引数を(props)にするのではなく,{nijas}にするとnijas off the propsを意味している
       //新しいarrayで返す
-      const ninjaList = ninjas.map(ninja => {
-         return(
+     // const ninjaList = ninjas.map(ninja => {
+         //制御構文を使う
+      //   if (ninja.age > 20 ){
+    //     return(
          //同じクラス名なのでuniquekeyを渡す必要がある
+         //  <div className="ninja" key={ninja.id}>
+         //  <div>Name: { ninja.name }</div>
+         //   <div>Age: { ninja.age }</div>
+         //   <div>Belt: { ninja.belt }</div>
+         //</div>
+    //     )
+    //  } else {
+    //     return null
+    //  }
+  // }) }
+  //このようにもかける
+   const ninjaList = ninjas.map(ninja => {
+      return ninja.age > 20 ? (
          <div className="ninja" key={ninja.id}>
             <div>Name: { ninja.name }</div>
             <div>Age: { ninja.age }</div>
             <div>Belt: { ninja.belt }</div>
          </div>
+      ) : null;
+   });
 
-         )
-      })
       return(
          <div className="ninja-list">
             { ninjaList }
