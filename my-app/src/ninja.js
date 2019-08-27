@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
-
-class Ninjas extends Component{
-   render(){
-      //renderメソッド配下にconsole.log()する(javascriptの領域だから)
-      console.log(this.props);
-      //const ninjas = this.props.ninjasでも同じ
-      const { ninjas } = this.props;
+import React from 'react';
+//class-based Componentsからfunctional-Componentsに変える
+//propsを引数に渡す必要がある
+const Ninjas = ({ninjas}) => {
+      //classやインスタンスではないのでthisはいらない
+      //const { ninjas } = props; 引数を(props)にするのではなく,{nijas}にするとnijas off the propsを意味している
       //新しいarrayで返す
       const ninjaList = ninjas.map(ninja => {
          return(
