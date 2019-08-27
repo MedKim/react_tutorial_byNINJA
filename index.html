@@ -22,11 +22,25 @@
          name: 'RYU',
          age: 30
       }
+      handleChange = e =>{
+         this.setState({
+            name: e.target.value
+         });
+      }
+      //eventオブジェクトを受け取る
+      handleSubmit = e =>{
+         e.preventDefault();
+         //ログで吐き出す
+         console.log('form submitted ', this.state.name);
+      }
       render(){
          return(
             <div className="app-content">
-            <h1>NINJA</h1>
-            <p>name:{ this.state.name }/age:{this.state.age}</p>
+            <h1>My name Is { this.state.name }</h1>
+            <form onSubmit={ this.handleSubmit }>
+               <input type="text" onChange={this.handleChange} />
+               <button>SUBMIT</button>
+            </form>
             </div>
          )
       }
