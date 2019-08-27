@@ -37,6 +37,6 @@ const Ninjas = ({ninjas}) => {
          </div>
       )
    }
-}
+
 
 export default Ninjas;
