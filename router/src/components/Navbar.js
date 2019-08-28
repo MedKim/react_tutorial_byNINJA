@@ -1,8 +1,13 @@
 import React from 'react';
 //aタグだとreloadされるがLink使うとsmoothに遷移してくれる(navlinkだとactiveクラスが付加される)
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 
-const Navbar = () =>{
+const Navbar = (props) =>{
+   console.log(props);
+   setTimeout(() => {
+      props.history.push('/about')
+   }, 2000);
+
    return(
       <nav className="nav-wrapper red darken-3">
          <div className="container">
@@ -16,5 +21,6 @@ const Navbar = () =>{
       </nav>
    )
 }
-
-export default Navbar;
+//higher Order ComponentであるwithRouterでwrappingする
+//propsのプロパティをsuperchargeしてくれる
+export default withRouter(Navbar);
