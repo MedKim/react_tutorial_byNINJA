@@ -1,7 +1,7 @@
 import React from 'react';
 //class-based Componentsからfunctional-Componentsに変える
 //propsを引数に渡す必要がある
-const Ninjas = ({ninjas}) => {
+const Ninjas = ({ninjas, deleteNinja}) => {
       //classやインスタンスではないのでthisはいらない
       //const { ninjas } = props; 引数を(props)にするのではなく,{nijas}にするとnijas off the propsを意味している
       //新しいarrayで返す
@@ -27,6 +27,7 @@ const Ninjas = ({ninjas}) => {
             <div>Name: { ninja.name }</div>
             <div>Age: { ninja.age }</div>
             <div>Belt: { ninja.belt }</div>
+            <button onClick={()=>{deleteNinja(ninja.id)}}>Delete ninja</button>
          </div>
       ) : null;
    });

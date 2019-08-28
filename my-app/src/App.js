@@ -19,12 +19,22 @@ class App extends React.Component {
       ninjas: ninjas
     })
   }
+  deleteNinja = (id) => {
+    //新しいninjas-Arrayを作成する(idでfileterをかける,idとninja.idが一致しているとarrayから除外される)
+    let ninjas = this.state.ninjas.filter(ninja => {
+      return ninja.id !== id;
+    });
+    this.setState({
+      ninjas: ninjas
+    })
+
+  }
   render(){
   return (
     <div className="App">
       <h1>First App</h1>
       {/* Ninjaコンポーネント */}
-      <Ninjas ninjas={this.state.ninjas} />
+      <Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas} />
       <AddNinja addNinja={this.addNinja} />
     </div>
   );
