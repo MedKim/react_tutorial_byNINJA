@@ -1,4 +1,6 @@
 import React from 'react';
+import './App.css';
+
 //class-based Componentsからfunctional-Componentsに変える
 //propsを引数に渡す必要がある
 const Ninjas = ({ninjas, deleteNinja}) => {
