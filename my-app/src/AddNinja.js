@@ -14,7 +14,7 @@ class AddNinja extends Component{
    handleSubmit = (e) =>{
       //submitした時にpageをreflashしないようにする
       e.preventDefault();
-      console.log(this.state);
+      this.props.addNinja(this.state);
 
    }
    render(){
