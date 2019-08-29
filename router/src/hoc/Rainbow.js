@@ -4,7 +4,7 @@ const Rainbow = (WrappedComponent) => {
    const colors = ['red', 'pink', 'orange', 'green', 'blue','yellow'];
    const randomColor = colors[Math.floor(Math.random() * 5)];
    const className = randomColor + '-text';
-
+   //propsはabout.jsの中身
    return (props) => {
       return(
          <div className={className}>
