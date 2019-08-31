@@ -1,26 +1,12 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Pokeball from '../pokeball.png';
+import { connect } from 'react-redux';
 
 class Home extends Component {
-   state = {
-      posts: []
-   }
-   //lifecycle-Hooksを理解しよう
-   componentDidMount(){
-      axios.get('https://jsonplaceholder.typicode.com/posts')
-      //GETリクエストが終了するとresponstオブジェクトが返ってくる
-         .then(res => {
-            console.log(res);
-            this.setState({
-               posts: res.data.slice(0,10)
-            })
-         })
-   }
    render(){
-      //stateのpostsプロパティを取得する
-      const {posts} = this.state;
+      console.log(this.props);
+      const {posts} = this.props;
       const postList = posts.length ? (
          posts.map(post => {
             return (
@@ -46,5 +32,12 @@ class Home extends Component {
       )  
    }
 };
-
-export default Home;
+//central-Stateであるreduxからsome-dateをpropsにする処理
+const mapStateToProps = () => {
+   return {
+      posts: state.posts
+   }
+}
+//connectはHOCなのでHOMEをwrapするんだがただのfunctionなのでまずconnect()でHOCを返しhomeをwrapしている形
+//connect-functionにmapStateToPropsを渡す
+export default connect(mapStateToProps)(Home);
