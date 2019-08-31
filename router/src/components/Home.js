@@ -33,7 +33,7 @@ class Home extends Component {
    }
 };
 //central-Stateであるreduxからsome-dateをpropsにする処理
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
    return {
       posts: state.posts
    }
